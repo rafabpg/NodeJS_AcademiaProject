@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id String @id @default(uuid())
+  name String
+  email String @unique
+  password_hash String 
+  create_at DateTime @default(now())
+
+  checkIn CheckIn[]
+
+
+  @@map("users")
+}
+
+model Academia{
+  id String @id @default(uuid())
+  title String
+  description String?
+  phone String
+  
+  checkIn CheckIn[]
+  @@map("academias")
+}
+
+model CheckIn{
+  id String @id @default(uuid())
+  create_at DateTime @default(now())
+  validated_at DateTime?
+
+  user User @relation(fields: [user_id], references: [id])
+  user_id String
+
+  academia Academia @relation(fields: [academia_id], references: [id])
+  academia_id String
+
+  @@map("checkIns")
+}
