@@ -1,4 +1,0 @@
-repository pattern  = tem a vantagem de na troca de ORM ou de DB apenas mexer na pasta de repositories
-SOLID :
- - D = DEPENDECIE INVERSION PRINCIPLE ( o service possui dependencia porem é necessario ter algo que não tenha contado direto com o repositorio )
- - I = 
