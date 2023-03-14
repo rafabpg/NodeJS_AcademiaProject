@@ -1,9 +1,8 @@
 import fastify from 'fastify';
+import { appRoutes } from './http/routes';
 
 
 
 export const app = fastify();
 
-app.post('/users',  (request,reply)=>{
-    const 
-})
+app.register(appRoutes);
